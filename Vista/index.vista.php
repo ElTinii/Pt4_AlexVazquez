@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
-	<link rel="stylesheet" href="../estils.css"> <!-- feu referència al vostre fitxer d'estils -->
+	<link rel="stylesheet" href="estils.css"> <!-- feu referència al vostre fitxer d'estils -->
 	<title>Paginació</title>
 	<!-Alex Vazquez Carrion->
 </head>
@@ -16,7 +16,7 @@
 					<?php echo articles();?>
 			</ul>
 		</section>
-		<form action="../Model/index.php" method="GET">
+		<form action="index.php" method="GET">
 			<select id="opcions" name="opcions" onchange="this.form.submit()">
 				<option value="5" <?php if($fi == 5) echo "selected"?>>5</option>
 				<option value="10" <?php if($fi == 10) echo "selected"?>>10</option>

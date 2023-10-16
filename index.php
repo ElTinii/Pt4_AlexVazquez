@@ -1,4 +1,4 @@
-<?php
+    <?php
     //Alex Vazquez Carrion 
     session_start();
     // Ens connectem a la base de dades	amb un try catch per evitar que el codi ens peti
@@ -61,5 +61,5 @@
     }
     }
 
-    include 'Vista/index_vista.php';
+    include_once 'Vista/index.vista.php'
     ?>
