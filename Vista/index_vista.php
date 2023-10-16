@@ -9,6 +9,10 @@
 	<!-Alex Vazquez Carrion->
 </head>
 <body>
+	<div class="sessio">
+		<button onclic=''>Iniciar sessio</button>
+		<button onclic=''>Registrar-se</button>
+	</div>
 	<div class="contenidor">
 		<h1>Articles</h1>
 		<section class="articles">

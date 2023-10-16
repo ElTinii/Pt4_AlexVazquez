@@ -61,5 +61,5 @@
     }
     }
 
-    include_once 'Vista/index.vista.php'
+    include_once 'Vista/index_vista.php'
     ?>
