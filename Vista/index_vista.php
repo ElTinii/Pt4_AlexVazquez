@@ -10,8 +10,9 @@
 </head>
 <body>
 	<div class="sessio">
-		<a href="Vista/iniciar.php"><button>Iniciar sessio</button></a>
-		<a href="Vista/register_vista.php"><button>Registrar-se</button></a>
+		
+			<button onclick="location.href='Vista/iniciar_vista.php'">Iniciar sessio</button>
+			<button onclick="location.href='Vista/register_vista.php'">Registrar-se</button>
 	</div>
 	<div class="contenidor">
 		<h1>Articles</h1>
@@ -20,7 +21,7 @@
 					<?php echo articles();?>
 			</ul>
 		</section>
-		<form action="index.php" method="GET">
+		<form action="index.php" method="GET" id="principal">
 			<select id="opcions" name="opcions" onchange="this.form.submit()">
 				<option value="5" <?php if($fi == 5) echo "selected"?>>5</option>
 				<option value="10" <?php if($fi == 10) echo "selected"?>>10</option>
