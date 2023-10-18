@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../estils_sessio.css">
 </head>
 <body>
-    <form action="" method="POST" id="principal">
+    <form action="../Controlador/iniciar_controlador.php" method="POST" id="principal">
         <label for="username" id="username" name="username">Username</label>
         <input type="text" name="username" id="username" for="username" placeholder="Escriu aqui el teu username"><br>
         <label for="">Contrasenya</label>
-        <input type="password" name="" id="" placeholder="Escriu aqui la teva contrasenya"><br>
+        <input type="password" name="password" id="password" placeholder="Escriu aqui la teva contrasenya"><br>
         <input type="submit" value="Enviar">
     </form>
     <form action="../index.php" method="POST">

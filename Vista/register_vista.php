@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar-se</title>
     <link rel="stylesheet" href="../estils_sessio.css">
-    <form action="" id="principal">
+</head>
+<body>
+<form action="../Controlador/register_controlador.php" id="principal">
         <label for="">Username</label>
         <input type="text" value="" placeholder="Escriu aqui el teu nom"><br>
         <label for="">Contraenya</label>
@@ -17,8 +19,5 @@
     <form action="../index.php" method="POST">
     <button action="">Tornar</button>
     </form>
-</head>
-<body>
-    
 </body>
 </html>
