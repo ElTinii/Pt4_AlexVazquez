@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
-	<link rel="stylesheet" href="estils.css"> <!-- feu referència al vostre fitxer d'estils -->
+	<link rel="stylesheet" href="estils.css">
 	<title>Paginació</title>
 	<!-Alex Vazquez Carrion->
 </head>
 <body>
 	<div class="sessio">
-		<button onclic=''>Iniciar sessio</button>
-		<button onclic=''>Registrar-se</button>
+		<a href="Vista/iniciar.php"><button>Iniciar sessio</button></a>
+		<a href="Vista/register_vista.php"><button>Registrar-se</button></a>
 	</div>
 	<div class="contenidor">
 		<h1>Articles</h1>
