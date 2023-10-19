@@ -11,8 +11,8 @@
 <body>
 	<div class="sessio">
 		
-			<button onclick="location.href='Vista/iniciar_vista.php'">Iniciar sessio</button>
-			<button onclick="location.href='Vista/register_vista.php'">Registrar-se</button>
+			<button onclick="location.href='Controlador/iniciar_controlador.php'">Iniciar sessio</button>
+			<button onclick="location.href='Controlador/register_controlador.php'">Registrar-se</button>
 	</div>
 	<div class="contenidor">
 		<h1>Articles</h1>
