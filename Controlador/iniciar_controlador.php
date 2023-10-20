@@ -30,5 +30,13 @@ if (isset($_POST["env_iniciar"])) {
         }
     }
 
+    function dupuser($user){
+        if($user == $username){
+            $errors = "Aquest username ja ha sigut agafat";
+            return false;
+        }else {
+            return true;
+        }
+    }
 include "../Vista/iniciar_vista.php";
 ?>
