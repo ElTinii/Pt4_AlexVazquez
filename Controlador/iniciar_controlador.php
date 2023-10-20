@@ -30,6 +30,5 @@ if (isset($_POST["env_iniciar"])) {
         }
     }
 
-
 include "../Vista/iniciar_vista.php";
 ?>

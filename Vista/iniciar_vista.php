@@ -19,7 +19,6 @@
              } else{
                     echo $errors;
                 }
-        
         ?>
     </form>
     <form action="../index.php" method="POST">

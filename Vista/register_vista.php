@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="../estils_sessio.css">
 </head>
 <body>
-<form action="../Controlador/register_controlador.php" id="principal">
-        <label for="">Username</label>
-        <input type="text" value="" placeholder="Escriu aqui el teu nom"><br>
-        <label for="">Contraenya</label>
-        <input type="password" name="" id=""><br>
+<form action="../Controlador/register_controlador.php" id="principal" method="POST">
+        <label for="username">Username</label>
+        <input type="text" value="username" name="username" placeholder="Escriu aqui el teu nom"><br>
+        <label for="password">Contraenya</label>
+        <input type="password" name="password" value="password" id=""><br>
         <label for="">Repeteix la Contrasenya</label>
-        <input type="password" name="" id="">
-        <input type="submit" value="Enviar">
+        <input type="password" name="password2" vaule="password" id="">
+        <input type="submit" value="Enviar" name="env_register"><br>
+        <?php
+            if(!isset($errors)){
+            $errors;
+             } else{
+                    echo $errors;
+                }
+        ?>
     </form>
     <form action="../index.php" method="POST">
     <button action="">Tornar</button>
