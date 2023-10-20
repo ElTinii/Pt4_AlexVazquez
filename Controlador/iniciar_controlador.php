@@ -9,37 +9,27 @@ if (isset($_POST["env_iniciar"])) {
 
     $username = filtrado($_POST["username"]);
     $password = filtrado($_POST["password"]);
-    $errors = array();
+    $errors = "";
+    $comp = false;
 
-    function compname($username) {
+
         if (strlen($username) > 25) {
-            $errors[] = "El teu Username es massa gran ha de ser mes petit que 25";
-            return false;
-        } elseif (strlen($username) < 4) {
-            $errors[] = "El teu Username es massa petit ha de ser mes gran que 4";
-            return false;
-        } else {
-            return true;
+            $errors= "El teu Username es massa gran ha de ser mes petit que 25";
+            $comp = false;
+        } else if (strlen($username) < 4) {
+            $errors = "El teu Username es massa petit ha de ser mes gran que 4";
+            $comp = false;
+        }else if (preg_match('/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,12}$/', $password)) {
+            $errors = "La contraseña no cumple con los requisitos";
+            $comp = false;
+        }else {
+            $comp = true;
+        }
+        if($comp){
+            require "../Model/iniciar_model.php";
         }
     }
 
-    function comppassw($password) {
-        if (preg_match('/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,12}$/', $password)) {
-            return true;
-        } else {
-            $errors[] = "La contraseña no cumple con los requisitos";
-            return false;
-        }
-    }
-    function errors(){
-        echo errors[];
-    }
 
-    if (compname($username) && comppassw($password)) {
-        require_once "../Model/iniciar_model.php";
-    }
-
-}
-
-include_once "../Vista/iniciar_vista.php";
+include "../Vista/iniciar_vista.php";
 ?>

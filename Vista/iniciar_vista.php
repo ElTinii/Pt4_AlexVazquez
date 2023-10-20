@@ -12,9 +12,14 @@
         <input type="text" name="username" id="username" for="username" placeholder="Escriu aqui el teu username"><br>
         <label for="password">Contrasenya</label>
         <input type="password" name="password" id="password" placeholder="Escriu aqui la teva contrasenya"><br>
-        <input type="submit" value="Enviar" name="env_iniciar">
+        <input type="submit" value="Enviar" name="env_iniciar"><br>
         <?php
-        echo "hola";
+            if(!isset($errors)){
+            $errors;
+             } else{
+                    echo $errors;
+                }
+        
         ?>
     </form>
     <form action="../index.php" method="POST">
