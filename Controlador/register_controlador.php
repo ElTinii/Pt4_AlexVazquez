@@ -1,4 +1,5 @@
 <?php
+    $comp = false;
 if (isset($_POST["env_register"])) {
     function filtrado($datos) {
         $datos = trim($datos);
@@ -11,7 +12,6 @@ if (isset($_POST["env_register"])) {
     $password = filtrado($_POST["password"]);
     $password2 = filtrado($_POST["password2"]);
     $errors = "";
-    $comp = false;
 
 
         if (strlen($username) > 25) {
@@ -31,9 +31,12 @@ if (isset($_POST["env_register"])) {
             $comp = true;
         }
         if($comp){
-            require "../Model/register_model.php";
+            require_once "../Model/register_model.php";
         }
     }
     
-include "../Vista/register_vista.php";
+
+if(!$comp){
+    include_once "../Vista/register_vista.php";
+}
 ?>

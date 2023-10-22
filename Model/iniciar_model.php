@@ -9,13 +9,13 @@
     $consulta->bindParam(1, $username);
     $consulta->execute();
     $resultado = $consulta->fetch();
-    $desc_passw = password_verify($password,$resultado);
+    $pass = $resultado["password"];
 
     if ($resultado) {
-        if(password_verify($password,$resultado)){
-            start_session();
+        if(password_verify($password,$pass)){
+            session_start();
             $_SESSION['username'] = $username;
-            include_once "../usuari_vista.php";
+           header("Location: ../Controlador/usuari_controlador.php");
         }else{
             $errors = "La contrasenya no es correcta";
         }

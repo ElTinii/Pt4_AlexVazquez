@@ -19,7 +19,9 @@ try {
         $stmt->bindParam(1, $username);
         $stmt->bindParam(2, $encr_pass);
         if ($stmt->execute()) {
-            include_once "../Vista/usuari_vista.php";
+            session_start();
+            $_SESSION['username'] = $username;
+            header("Location: ../Controlador/usuari_controlador.php");
         } else {
             $errors = "Error al inserir el usuario";
         }

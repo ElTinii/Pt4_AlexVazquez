@@ -11,16 +11,16 @@
 <body>
 	<div class="sessio">
 		
-			<button onclick="location.href='../Vista/index_vista.php'">Tancar sessio</button>
+			<button onclick="location.href='../index.php'" onclick="session_close()">Tancar sessio</button>
 	</div>
 	<div class="contenidor">
 		<h1>Articles</h1>
 		<section class="articles">
 			<ul>
-					<?php echo articles();?>
+					<?php echo articles_usuari();?>
 			</ul>
 		</section>
-		<form action="index.php" method="GET" id="principal">
+		<form action="../Controlador/usuari_controlador.php" method="GET" id="principal">
 			<select id="opcions" name="opcions" onchange="this.form.submit()">
 				<option value="5" <?php if($fi == 5) echo "selected"?>>5</option>
 				<option value="10" <?php if($fi == 10) echo "selected"?>>10</option>

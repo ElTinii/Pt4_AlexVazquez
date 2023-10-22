@@ -1,4 +1,5 @@
 <?php
+    $comp = false;
 if (isset($_POST["env_iniciar"])) {
     function filtrado($datos) {
         $datos = trim($datos);
@@ -10,7 +11,6 @@ if (isset($_POST["env_iniciar"])) {
     $username = filtrado($_POST["username"]);
     $password = filtrado($_POST["password"]);
     $errors = "";
-    $comp = false;
 
 
         if (strlen($username) > 25) {
@@ -26,17 +26,10 @@ if (isset($_POST["env_iniciar"])) {
             $comp = true;
         }
         if($comp){
-            require "../Model/iniciar_model.php";
+            require_once "../Model/iniciar_model.php";
         }
     }
-
-    function dupuser($user){
-        if($user == $username){
-            $errors = "Aquest username ja ha sigut agafat";
-            return false;
-        }else {
-            return true;
-        }
+    if(!$comp){
+        include_once "../Vista/iniciar_vista.php";
     }
-include "../Vista/iniciar_vista.php";
 ?>
