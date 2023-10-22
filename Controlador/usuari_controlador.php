@@ -1,8 +1,14 @@
 <?php
+//Alex Vazquez
+//iniciem la sessio
+session_start();
+//Aqui fem que si podem agafar de la url i la variable $_GET no esta buida que la session agafi el username de la url
+if (isset($_GET['username']) && !($_GET['username'] == "")){
+$_SESSION['username'] = $_GET['username']; 
+}
+//Si la session esta setejada entrem
 if(isset($_SESSION['username'])){
     //Alex Vazquez Carrion 
-    $username = filtrado($_POST["username"]);
-    $password = filtrado($_POST["password"]);
     $name = "pt03_alex_vazquez";
     $dbuser = "root";
     $connexio = new PDO("mysql:host=localhost;dbname=$name", $dbuser,'');

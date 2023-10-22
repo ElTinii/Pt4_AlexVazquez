@@ -14,7 +14,10 @@
 			<button onclick="location.href='../index.php'" onclick="session_close()">Tancar sessio</button>
 	</div>
 	<div class="contenidor">
-		<h1>Articles</h1>
+		<h1>Articles</h1><br>
+		<button onclick="location.href='../Vista/afegir.php'">Afegir</button>
+		<button>Eliminar</button>
+		<button>Modificar</button>
 		<section class="articles">
 			<ul>
 					<?php echo articles_usuari();?>

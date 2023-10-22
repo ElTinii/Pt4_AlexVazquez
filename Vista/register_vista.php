@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar-se</title>
     <link rel="stylesheet" href="../estils_sessio.css">
+    <!-Alex Vazquez Carrion->
 </head>
 <body>
 <form action="../Controlador/register_controlador.php" id="principal" method="POST">
@@ -16,6 +17,7 @@
         <input type="password" name="password2" vaule="password" id="">
         <input type="submit" value="Enviar" name="env_register"><br>
         <?php
+        //Aqui mostro els errors que es guarden a la variable error
             if(!isset($errors)){
             $errors;
              } else{
