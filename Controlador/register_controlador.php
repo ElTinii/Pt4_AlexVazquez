@@ -28,6 +28,8 @@ if (isset($_POST["env_register"])) {
         }elseif ($password =! $password2) {
             $errors = "La contraseña no coinciden";
             $comp = false;
+        }else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) && !empty($_POST["email"])){
+            $errors = "El format del mail no es el correcte";
         }
         else {
             $comp = true;

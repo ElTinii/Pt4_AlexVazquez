@@ -13,6 +13,7 @@
         <input type="text" name="username" id="username" for="username" placeholder="Escriu aqui el teu username"><br>
         <label for="password">Contrasenya</label>
         <input type="password" name="password" id="password" placeholder="Escriu aqui la teva contrasenya"><br>
+        <a href="../Controlador/recuperar_controlador.php">Has oblidat la contrasenya?</a> <br>
         <input type="submit" value="Enviar" name="env_iniciar"><br>
         <?php
         //Aqui mostro els errors que es guarden a la variable errors

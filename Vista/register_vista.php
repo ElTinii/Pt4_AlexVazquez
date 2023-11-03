@@ -11,11 +11,13 @@
 <form action="../Controlador/register_controlador.php" id="principal" method="POST">
         <label for="username">Username</label>
         <input type="text" value="username" name="username" placeholder="Escriu aqui el teu nom"><br>
+        <label for="">Correu electronic</label>
+        <input type="text" name="" id="" placeholder="Escriu aqui el teu correu electronic">
         <label for="password">Contraenya</label>
         <input type="password" name="password" value="password" id=""><br>
         <label for="">Repeteix la Contrasenya</label>
-        <input type="password" name="password2" vaule="password" id="">
-        <input type="submit" value="Enviar" name="env_register"><br>
+        <input type="password" name="password2" vaule="password" id="" placeholder="Escriu aqui la teva contrasenya">
+        <input type="submit" value="Enviar" name="env_register" placeholder="Repeteix la teva contrasenya"><br>
         <?php
         //Aqui mostro els errors que es guarden a la variable error
             if(!isset($errors)){
