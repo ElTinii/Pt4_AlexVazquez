@@ -11,6 +11,14 @@
         <label for="">Email</label>
         <input type="text" name="email"placeholder="Esciu aqui el teu mail">
         <input type="submit" value="Enviar" name="enviar">
+        <?php
+        //Aqui mostro els errors que es guarden a la variable errors
+            if(isset($errors)){
+                echo $errors;
+             }else{
+                $errors;
+                }
+        ?>
     </form>
 </body>
 </html>
