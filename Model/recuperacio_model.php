@@ -41,7 +41,7 @@ function canviarcontrasenya($contrasenya,$token){
     }
 }
 
-function competoken($token){
+function comptoken($token){
     $connexio = connexio();
     $consulta = $connexio->prepare('SELECT * FROM usuaris WHERE token = ?');
     $consulta->bindParam(1, $token);

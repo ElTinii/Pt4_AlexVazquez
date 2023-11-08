@@ -18,7 +18,8 @@ if (isset($_POST['Env_contra'])){
         $comp = true;
     }
 if($comp){
-    canviarcontasenya($password,$token);
+    $encr_pass = password_hash($password,PASSWORD_DEFAULT);
+    canviarcontrasenya($encr_pass,$token);
 }
 }
 include "../Vista/recuperacio_vista.php"
