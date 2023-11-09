@@ -3,7 +3,7 @@
 
 if (isset($_GET['code'])) {
   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-  $client->setAccessToken($token['access_token']);
+   $client->setAccessToken($token['access_token']);
   
   // get profile info
   $google_oauth = new Google_Service_Oauth2($client);

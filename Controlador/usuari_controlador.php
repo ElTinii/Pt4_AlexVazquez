@@ -1,12 +1,17 @@
 <?php
 //Alex Vazquez
 session_start();
+require_once "../Model/OAuth.php";
+require_once "../Model/recuperacio_model.php";
+if(!isset($email)){
+    $email = "";
+    
+}
 if(!isset($_SESSION['email'])){
     require_once "../autentificacion.php";
     $_SESSION['email'] = $email;
 }
-require_once "../Model/OAuth.php";
-require_once "../Model/recuperacio_model.php";
+
 $email = $_SESSION['email'];
 if(!compemail($email)){
     afegirUser($email, $name);

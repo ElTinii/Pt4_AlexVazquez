@@ -6,25 +6,21 @@
 include 'vendor/autoload.php';
 
 $config = [
-    'callback' => Hybridauth\HttpClient\Util::getCurrentUrl(),
+    'callback' => "http://localhost/Practiques/Pt05_AlexVazquez/index.php",
 
-    'keys' => ['id' => '', 'secret' => ''],
+    'keys' => ['id' => '6fd6e04c9fd6a8f40d50', 'secret' => '94ef8126e111ff22e7c774025daa88f0ed49d26a'],
 ];
 
-$guzzle = new Hybridauth\HttpClient\Guzzle(null, [
-    // 'verify' => true, # Set to false to disable SSL certificate verification
-]);
-
 try {
-    $adapter = new Hybridauth\Provider\Github($config, $guzzle);
+    $adapter = new Hybridauth\Provider\Github($config);
 
     $adapter->authenticate();
 
     $tokens = $adapter->getAccessToken();
     $userProfile = $adapter->getUserProfile();
 
-    // print_r($tokens);
-    // print_r($userProfile);
+    print_r($tokens);
+    print_r($userProfile);
 
     $adapter->disconnect();
 } catch (Exception $e) {

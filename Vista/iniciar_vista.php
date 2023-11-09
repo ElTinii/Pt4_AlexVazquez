@@ -17,8 +17,11 @@
         <div class="enlace">
          <img src="imagenes/ui.svg">
          <?php require ('../autentificacion.php')?>
-        <a href="<?php echo $client->createAuthUrl() ?>">Iniciar sesión con Google</a>
-      </div>
+         <a href="<?php echo $client->createAuthUrl() ?>">Iniciar sesión con Google</a>
+        </div>
+        <div class="github">
+         <a href="../github.php">Iniciar sesión con Github</a>
+        </div>
         <input type="submit" value="Enviar" name="env_iniciar"><br>
         <?php
         //Aqui mostro els errors que es guarden a la variable errors
