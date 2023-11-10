@@ -6,7 +6,7 @@
 include 'vendor/autoload.php';
 
 $config = [
-    'callback' => "http://localhost/Practiques/Pt05_AlexVazquez/index.php",
+    'callback' => "http://localhost/Practiques/Pt05_AlexVazquez/Controlador/github_controlador.php",
 
     'keys' => ['id' => '6fd6e04c9fd6a8f40d50', 'secret' => '94ef8126e111ff22e7c774025daa88f0ed49d26a'],
 ];
@@ -18,9 +18,8 @@ try {
 
     $tokens = $adapter->getAccessToken();
     $userProfile = $adapter->getUserProfile();
-
-    print_r($tokens);
-    print_r($userProfile);
+    $name = $userProfile->displayName;
+    $email = $userProfile->email;
 
     $adapter->disconnect();
 } catch (Exception $e) {

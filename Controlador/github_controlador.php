@@ -5,11 +5,10 @@ require_once "../Model/OAuth.php";
 require_once "../Model/recuperacio_model.php";
 
 if(!isset($_SESSION['email'])){
-    require_once "../autentificacion.php";
+    require_once "../github.php";
     $_SESSION['email'] = $email;
 }
 $email = $_SESSION['email'];
-
 if(!compemail($email)){
     afegirUser($email, $name);
 }
@@ -22,9 +21,6 @@ $_SESSION['username'] = $_GET['username'];
 //Si la session esta setejada entrem
 if(isset($_SESSION['username']) || isset($_SESSION['email'])){
     //Alex Vazquez Carrion 
-    $name = "pt03_alex_vazquez";
-    $dbuser = "root";
-    $connexio = new PDO("mysql:host=localhost;dbname=$name", $dbuser,'');
     $conteo;  
     $pagina = 1;
 
@@ -45,7 +41,7 @@ if(isset($_SESSION['username']) || isset($_SESSION['email'])){
         global $pagina;
         global $paginas;
         global $connexio;
-        $resultat = "";
+
         //Aqui estic agafant a la pagina en la que es troba l'usuari
         if (isset($_GET["pagina"])) {
             $pagina = intval($_GET["pagina"]);
@@ -53,20 +49,8 @@ if(isset($_SESSION['username']) || isset($_SESSION['email'])){
 
         $fi = opcions();
         $inici = ($pagina - 1) * $fi;
+        $resultat = mostrarArticles($fi,$inici);
 
-        $sentencia = $connexio->query("SELECT count(*) AS conteo FROM articles");
-        $conteo = $sentencia->fetchObject()->conteo;
-        $paginas = ceil($conteo / $fi);
-
-        $stmt = $connexio->prepare("SELECT * FROM articles LIMIT $inici, $fi");
-        $stmt->execute();
-
-    if(($stmt->execute())){
-        while ($dades = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $resultat .= '<li>' . $dades['article_id']. '. ' . $dades['Titol'] . '</li>';
-        }
-        return $resultat;
-    }
     }
 }
 include_once '../Vista/usuari_vista.php';
