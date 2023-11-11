@@ -13,25 +13,23 @@ if (isset($_POST["env_register"])) {
     $username = filtrado($_POST["username"]);
     $password = filtrado($_POST["password"]);
     $password2 = filtrado($_POST["password2"]);
+    $email = filtrado($_POST["email"]);
     $errors = "";
 
 //Aqui fem les comprovacions de les dades , si no es fa ninguna entra al model de registrar-se, si en fa alguna torna a la vista
         if (strlen($username) > 25) {
+            $comp = false;
             $errors= "El teu Username es massa gran ha de ser mes petit que 25";
-            $comp = false;
         } else if (strlen($username) < 4) {
+            $comp = false;
             $errors = "El teu Username es massa petit ha de ser mes gran que 4";
+        }else if ($password =! $password2) {
             $comp = false;
-        }else if (preg_match('/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,12}$/', $password)) {
-            $errors = "La contraseña no cumple con los requisitos";
-            $comp = false;
-        }elseif ($password =! $password2) {
             $errors = "La contraseña no coinciden";
+        }else if (!(filter_var($email, FILTER_VALIDATE_EMAIL)) && !empty($email)){
             $comp = false;
-        }else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) && !empty($_POST["email"])){
             $errors = "El format del mail no es el correcte";
-        }
-        else {
+        }else {
             $comp = true;
         }
         if($comp){

@@ -9,7 +9,7 @@
 <body>
     <form action="../Controlador/recuperar_controlador.php" method="POST">
         <label for="">Email</label>
-        <input type="text" name="email"placeholder="Esciu aqui el teu mail">
+        <input type="text" name="email" placeholder="Esciu aqui el teu mail">
         <input type="submit" value="Enviar" name="enviar">
         <?php
         //Aqui mostro els errors que es guarden a la variable errors

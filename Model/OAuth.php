@@ -14,7 +14,6 @@ function mostrarArticles($fi,$inici){
     $resultat = "";
     $sentencia = $connexio->query("SELECT count(*) AS conteo FROM articles");
     $conteo = $sentencia->fetchObject()->conteo;
-    $paginas = ceil($conteo / $fi);
 
     $stmt = $connexio->prepare("SELECT * FROM articles LIMIT $inici, $fi");
     $stmt->execute();
@@ -25,5 +24,12 @@ function mostrarArticles($fi,$inici){
     }
     return $resultat;
     }
+}
+
+function numeroArticles(){
+    $connexio = connexio();
+    $sentencia = $connexio->query("SELECT count(*) AS conteo FROM articles");
+    $conteo = $sentencia->fetchObject()->conteo;
+    return $conteo;
 }
 ?>

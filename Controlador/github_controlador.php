@@ -14,12 +14,8 @@ if(!compemail($email)){
 }
 //iniciem la sessio
 
-//Aqui fem que si podem agafar de la url i la variable $_GET no esta buida que la session agafi el username de la url
-if (isset($_GET['username']) && !($_GET['username'] == "")){
-$_SESSION['username'] = $_GET['username']; 
-}
 //Si la session esta setejada entrem
-if(isset($_SESSION['username']) || isset($_SESSION['email'])){
+if(isset($_SESSION['email'])){
     //Alex Vazquez Carrion 
     $conteo;  
     $pagina = 1;
@@ -40,17 +36,18 @@ if(isset($_SESSION['username']) || isset($_SESSION['email'])){
         global $fi;
         global $pagina;
         global $paginas;
-        global $connexio;
-
         //Aqui estic agafant a la pagina en la que es troba l'usuari
+        $fi = opcions();
+        $inici = ($pagina - 1) * $fi;
+
         if (isset($_GET["pagina"])) {
             $pagina = intval($_GET["pagina"]);
         }
+        $conteo = numeroArticles();
+        $paginas = ceil($conteo / $fi);
 
-        $fi = opcions();
-        $inici = ($pagina - 1) * $fi;
         $resultat = mostrarArticles($fi,$inici);
-
+        return $resultat;
     }
 }
 include_once '../Vista/usuari_vista.php';

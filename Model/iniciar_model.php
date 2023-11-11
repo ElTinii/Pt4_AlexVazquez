@@ -1,11 +1,10 @@
 <?php
 //Alex Vazquez
+require_once "../Model/recuperacio_model.php";
+function password(){
     $username = filtrado($_POST["username"]);
     $password = filtrado($_POST["password"]);
-    $name = "pt03_alex_vazquez";
-    $dbuser = "root";
-    //Ens conectem a la base de dades
-    $connexio = new PDO("mysql:host=localhost;dbname=$name", $dbuser,'');
+    $connexio = connexio();
 
     //Mirem si l'usuari esta a la base de dades si no ho esta mes abaix a la comprovacio surt un error
     $consulta = $connexio->prepare('SELECT password FROM usuaris WHERE username = ?');
@@ -24,9 +23,23 @@
            header("Location: ../Controlador/usuari_controlador.php?username=$username;");
         }else{
             $errors = "La contrasenya no es correcta";
+            include_once "../Vista/iniciar_vista.php";
         }
         
     } else {
         $errors = "No hemos encontrado el usuario";
     }
+}
+function compUsuari($username){
+    $connexio = connexio();
+    $consulta = $connexio->prepare('SELECT * FROM usuaris WHERE username = ?');
+    $consulta->bindParam(1, $username);
+    $consulta->execute();
+    $resultado = $consulta->fetch();
+    if($resultado){
+        return false;
+    }else{
+        return true;
+    }
+}
 ?>

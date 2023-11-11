@@ -15,7 +15,6 @@
         <input type="password" name="password" id="password" placeholder="Escriu aqui la teva contrasenya"><br>
         <a href="../Controlador/recuperar_controlador.php">Has oblidat la contrasenya?</a> <br>
         <div class="enlace">
-         <img src="imagenes/ui.svg">
          <?php require ('../autentificacion.php')?>
          <a href="<?php echo $client->createAuthUrl() ?>">Iniciar sesión con Google</a>
         </div>

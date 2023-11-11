@@ -16,7 +16,8 @@ try {
 
     //comorovo si el username esta repetit, si no esta ho insereix a la base de dades
     if ($resultado) {
-        $errors = "Este username ya esta inserido";
+        $errors = "Este username ya esta inserit";
+        include "../Vista/register_vista.php";
     } else {
         $stmt = $connexio->prepare('INSERT INTO usuaris (username, password) VALUES (?,?)');
         $stmt->bindParam(1, $username);

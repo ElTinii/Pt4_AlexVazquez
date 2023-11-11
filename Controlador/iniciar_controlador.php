@@ -1,7 +1,9 @@
 <?php
+    require_once "../Model/iniciar_model.php";
     $comp = false;
     //Si li han donat al boto enviar entra
 if (isset($_POST["env_iniciar"])) {
+    global $errors;
     //Filtra les dades per que no tingui codi ni ninguna cosa extranya
     function filtrado($datos) {
         $datos = trim($datos);
@@ -15,20 +17,15 @@ if (isset($_POST["env_iniciar"])) {
     $errors = "";
 
 //Aqui fem les comprovacions de les dades , si no es fa ninguna entra al model d'inici de sessio, si en fa alguna torna a la vista
-        if (strlen($username) > 25) {
-            $errors= "El teu Username es massa gran ha de ser mes petit que 25";
+        if(compUsuari($username)){
             $comp = false;
-        } else if (strlen($username) < 4) {
-            $errors = "El teu Username es massa petit ha de ser mes gran que 4";
-            $comp = false;
-        }else if (preg_match('/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,12}$/', $password)) {
-            $errors = "La contraseña no cumple con los requisitos";
-            $comp = false;
-        }else {
+            $errors = "El username no es correcte";
+        }
+        else {
             $comp = true;
         }
         if($comp){
-            require_once "../Model/iniciar_model.php";
+            password();
         }
     }
     if(!$comp){
