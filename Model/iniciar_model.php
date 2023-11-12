@@ -29,6 +29,7 @@ function password(){
     } else {
         $errors = "No hemos encontrado el usuario";
     }
+
 }
 function compUsuari($username){
     $connexio = connexio();
