@@ -36,8 +36,10 @@ function canviarcontrasenya($contrasenya,$token){
     $consulta = $connexio->prepare('UPDATE usuaris SET password = ? WHERE token = ? ');
     $consulta->bindParam(1, $contrasenya);
     $consulta->bindParam(2, $token);
+    $consulta->execute();
     }else{
         $errors = "El token esta malament";
+        include_once "../Vista/recuperacio_vista.php";
     }
 }
 

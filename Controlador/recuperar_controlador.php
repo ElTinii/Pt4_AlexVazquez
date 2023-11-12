@@ -2,8 +2,9 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
-    $errors = "";
 if (isset($_POST['enviar'])){
+    global $errors;
+    $errors = "";
     require '../Model/recuperacio_model.php';
     require 'C:\xampp\PHPMailer-master\src\Exception.php';
     require 'C:\xampp\PHPMailer-master\src\PHPMailer.php';
@@ -41,9 +42,8 @@ if (isset($_POST['enviar'])){
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Canvi de contrasenya';
             $mail->Body    = "Bon dia <br>  ha solicitat un canvi de contrasenya per canviar-la accedeix a aquest link http://localhost/Practiques/Pt05_AlexVazquez/Controlador/recuperacio_controlador.php?token=$token";
-        
-            $mail->send();
             $errors = 'El missatge ha sigut enviat correctament';
+            $mail->send();
         } catch (Exception $e) {
             $errors = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

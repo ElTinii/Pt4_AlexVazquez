@@ -13,6 +13,14 @@
         <label for="">Repeteix la contrasenya</label>
         <input type="password" name="password2" id="" placeholder="Repeteix la contrasenya"><br>
         <input type="submit" value="Enviar" name="Env_contra">
+        <?php
+        //Aqui mostro els errors que es guarden a la variable errors
+            if(isset($errors)){
+                echo $errors;
+             }else{
+                $errors;
+                }
+        ?>
     </form>
 </body>
 </html>
