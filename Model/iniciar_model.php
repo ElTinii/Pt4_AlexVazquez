@@ -31,6 +31,7 @@ function password(){
     }
 
 }
+//Aqui busquem si esta a la base de dades l'usuari que ens pasen
 function compUsuari($username){
     $connexio = connexio();
     $consulta = $connexio->prepare('SELECT * FROM usuaris WHERE username = ?');

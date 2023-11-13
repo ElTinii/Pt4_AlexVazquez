@@ -34,32 +34,3 @@ if (isset($_POST["env_iniciar"])) {
         include_once "../Vista/iniciar_vista.php";
     }
 ?>
-<?php
-	
-	if(!empty($_POST)){
-		
-		$name = $_POST['name'];
-		$password = $_POST['password'];
-		$captcha = $_POST['g-recaptcha-response'];
-		
-		$secret = 'aqui va la clave secreta';
-		
-		if(!$captcha){
-
-			echo "Por favor verifica el captcha";
-			
-			} else {
-			
-			$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
-			
-			$arr = json_decode($response, TRUE);
-			
-			if($arr['success'])
-			{
-				echo '<h2>Thanks</h2>';
-				} else {
-				echo '<h3>Error al comprobar Captcha </h3>';
-			}
-		}
-	}
-?>

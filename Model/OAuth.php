@@ -1,5 +1,7 @@
 <?php
 require_once "../Model/recuperacio_model.php";
+
+//Aqui afegim l'usuari a la base de dades
 function afegirUser($email,$name){
     $connexio = connexio();
     $stmt = $connexio->prepare('INSERT INTO usuaris (username, correu) VALUES (?,?)');
@@ -8,6 +10,7 @@ function afegirUser($email,$name){
     $stmt->execute();
 }
 
+//Aquesta funcio serveix per que pasi els articles i els mostri on es cridi la funcio
 function mostrarArticles($fi,$inici){
     $connexio = connexio();
     $fi = opcions();
@@ -25,7 +28,7 @@ function mostrarArticles($fi,$inici){
     return $resultat;
     }
 }
-
+//Aqui estem contant el numero d'articles
 function numeroArticles(){
     $connexio = connexio();
     $sentencia = $connexio->query("SELECT count(*) AS conteo FROM articles");

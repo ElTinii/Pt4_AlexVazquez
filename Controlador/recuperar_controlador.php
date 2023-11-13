@@ -3,6 +3,7 @@
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
 if (isset($_POST['enviar'])){
+    //Cridem alguns arxius per qeu vagi be la funcio
     global $errors;
     $errors = "";
     require '../Model/recuperacio_model.php';
@@ -11,6 +12,7 @@ if (isset($_POST['enviar'])){
     require 'C:\xampp\PHPMailer-master\src\SMTP.php';
 
     $email = $_POST['email'];
+    //Aqui generem un token i l'afegim a la base de dades
     function generartoken(){
         $email = $_POST['email'];
         $token = bin2hex(random_bytes(16));
@@ -19,7 +21,7 @@ if (isset($_POST['enviar'])){
     }
     $token = generartoken();
 
-
+//Amb aquesta funcio enviem un mail
     function enviarphpmailer($email,$token){
         $mail = new PHPMailer(true);
         

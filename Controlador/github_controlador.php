@@ -1,14 +1,16 @@
 <?php
 //Alex Vazquez
+//Iniciem la sessio i cridem als fitxers necessaris per fer hybrod auth
 session_start();
 require_once "../Model/OAuth.php";
 require_once "../Model/recuperacio_model.php";
-
+//Mirem si la sessio de email esta setejada, si ho esta no fa res si no ho esta crida al github.php i inicia la sessio email
 if(!isset($_SESSION['email'])){
     require_once "../github.php";
     $_SESSION['email'] = $email;
 }
 $email = $_SESSION['email'];
+//Mirem si el mail esta a la base de dades si no ho esta l'afegim
 if(!compemail($email)){
     afegirUser($email, $name);
 }
@@ -45,7 +47,7 @@ if(isset($_SESSION['email'])){
         }
         $conteo = numeroArticles();
         $paginas = ceil($conteo / $fi);
-
+        
         $resultat = mostrarArticles($fi,$inici);
         return $resultat;
     }

@@ -6,6 +6,7 @@ function connexio(){
     $connexio = new PDO("mysql:host=localhost;dbname=$name", $dbuser,'');
     return $connexio;
 }
+//Aqui comprovem si hi ha a la base de dades l'email que ens passem
 function compemail($email){
     $connexio = connexio();
     $consulta = $connexio->prepare('SELECT * FROM usuaris WHERE correu = ?');
@@ -18,6 +19,7 @@ function compemail($email){
         return false;
     }
 }
+//Afegim a la base de dades un token que ens pasan  cuan criden a la funcio
 function afegirtoken($email,$token){
     $connexio = connexio();
     if (compemail($email)){
@@ -30,6 +32,7 @@ function afegirtoken($email,$token){
         $errors = "El correu es incorrecte";
     }
 }
+//Amb aquesta funcio canviem la contrasenya si el token que esta a la url es el mateix que el de la base de dades
 function canviarcontrasenya($contrasenya,$token){
     if(comptoken($token)){
     $connexio = connexio();
@@ -42,7 +45,7 @@ function canviarcontrasenya($contrasenya,$token){
         include_once "../Vista/recuperacio_vista.php";
     }
 }
-
+//Fem la comprovacio del token que ens han passat
 function comptoken($token){
     $connexio = connexio();
     $consulta = $connexio->prepare('SELECT * FROM usuaris WHERE token = ?');
