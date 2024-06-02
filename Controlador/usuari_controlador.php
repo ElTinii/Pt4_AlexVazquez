@@ -10,8 +10,14 @@ if(!isset($_SESSION['email'])){
 }
 $email = $_SESSION['email'];
 
+if(!isset($_SESSION['name'])){
+    require_once "../autentificacion.php";
+    $_SESSION['name'] = $name;
+}
+$name = $_SESSION['name'];
+
 if(!compemail($email)){
-    afegirUser($email, $name);
+    afegirUser($email, $name, $google,$github);
 }
 //iniciem la sessio
 

@@ -10,6 +10,7 @@ if (isset($_GET['code'])) {
   $google_account_info = $google_oauth->userinfo->get();
   $email =  $google_account_info->email;
   $name =  $google_account_info->name;
-
+  $google = true;
+  $github = false;
 }
 ?>

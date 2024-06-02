@@ -2,11 +2,13 @@
 require_once "../Model/recuperacio_model.php";
 
 //Aqui afegim l'usuari a la base de dades
-function afegirUser($email,$name){
+function afegirUser($email,$name,$google,$github){
     $connexio = connexio();
-    $stmt = $connexio->prepare('INSERT INTO usuaris (username, correu) VALUES (?,?)');
+    $stmt = $connexio->prepare('INSERT INTO usuaris (username, correu, google,github) VALUES (?,?,?,?)');
     $stmt->bindParam(1, $name);
     $stmt->bindParam(2, $email);
+    $stmt->bindParam(3, $google);
+    $stmt->bindParam(4, $github);
     $stmt->execute();
 }
 

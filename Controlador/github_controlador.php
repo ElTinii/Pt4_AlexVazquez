@@ -10,9 +10,15 @@ if(!isset($_SESSION['email'])){
     $_SESSION['email'] = $email;
 }
 $email = $_SESSION['email'];
+
+if(!isset($_SESSION['name'])){
+    require_once "../github.php";
+    $_SESSION['name'] = $name;
+}
+$name = $_SESSION['name'];
 //Mirem si el mail esta a la base de dades si no ho esta l'afegim
 if(!compemail($email)){
-    afegirUser($email, $name);
+    afegirUser($email, $name, $google,$github);
 }
 //iniciem la sessio
 

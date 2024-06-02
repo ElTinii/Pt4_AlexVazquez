@@ -20,6 +20,8 @@ try {
     $userProfile = $adapter->getUserProfile();
     $name = $userProfile->displayName;
     $email = $userProfile->email;
+    $google = false;
+    $github = true;
 
     $adapter->disconnect();
 } catch (Exception $e) {
