@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sessio</title>
     <link rel="stylesheet" href="../estils_sessio.css">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js' async></script>
     <!-Alex Vazquez Carrion->
 </head>
 <body>
@@ -15,7 +15,8 @@
         <label for="password">Contrasenya</label>
         <input type="password" name="password" id="password" placeholder="Escriu aqui la teva contrasenya"><br>
         <br>
-		<div class="g-recaptcha" data-sitekey="6LfuegwpAAAAALO5eMPjVlDTSW5GFLF30OdcwCfK"></div>
+		<div class="g-recaptcha" data-sitekey="6Lf9mvQpAAAAAPF3KqUg4ykGVgp7K07Rx-MmQNdH"></div>
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
 		<br>
         <a href="../Controlador/recuperar_controlador.php">Has oblidat la contrasenya?</a> <br>
         <div class="enlace">

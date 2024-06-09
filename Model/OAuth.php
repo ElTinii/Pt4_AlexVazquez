@@ -17,7 +17,7 @@ function mostrarArticles($fi,$inici){
     $connexio = connexio();
     $fi = opcions();
     $resultat = "";
-    $sentencia = $connexio->query("SELECT count(*) AS conteo FROM articles");
+    $sentencia = $connexio->query("SELECT count(*) AS conteo FROM articles WHERE usuari_id = $id");
     $conteo = $sentencia->fetchObject()->conteo;
 
     $stmt = $connexio->prepare("SELECT * FROM articles LIMIT $inici, $fi");

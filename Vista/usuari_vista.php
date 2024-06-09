@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
 	<link rel="stylesheet" href="../estils.css">
-	<title>Paginació</title>
-	<!-Alex Vazquez Carrion->
+	<title>Usuaris</title>
+	<!-- Alex Vazquez Carrion -->
 </head>
 <body>
 	<div class="sessio">
@@ -16,11 +16,9 @@
 	<div class="contenidor">
 		<h1>Articles</h1><br>
 		<button onclick="location.href='../Vista/afegir.php'">Afegir</button>
-		<button>Eliminar</button>
-		<button>Modificar</button>
 		<section class="articles">
 			<ul>
-					<?php echo articles_usuari();?>
+					<?php echo articlesUsers();?>
 			</ul>
 		</section>
 		<form action="../Controlador/usuari_controlador.php" method="GET" id="principal">
@@ -31,6 +29,7 @@
 				<option value="20" <?php if($fi == 20) echo "selected" ?>>20</option>
 			</select>
 		</form>	
+		<img src="" alt="">
 		<section class="paginacio">
 		<ul>
 		<?php //Aqui el que estic fent es activar o desactivar el boto a partir de comprovar a quina pagina es troba l'usuari?>

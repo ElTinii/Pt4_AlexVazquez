@@ -2,6 +2,12 @@
     require_once "../Model/iniciar_model.php";
     $comp = false;
     session_start();
+    
+    if (!isset($_SESSION['contError'])) {
+        $_SESSION['contError'] = 0;
+    }
+    
+    echo $_SESSION['contError'];
     //Si li han donat al boto enviar entra
 if (isset($_POST["env_iniciar"])) {
     global $errors;
@@ -21,15 +27,22 @@ if (isset($_POST["env_iniciar"])) {
         if(compUsuari($username)){
             $comp = false;
             $errors = "El username no es correcte";
+            $_SESSION['contError'] = $_SESSION['contError'] + 1;
         }
         else {
             $comp = true;
         }
         if($comp){
-          password();
-        }
+            if (isset($_SESSION['contError'])) {
+                $_SESSION['contError'] = 0;
+            }
+            password();
+          }
     }
-    if(!$comp){
+    if ($_SESSION['contError'] >= 3) {
+        include_once "../Vista/iniciar_vista_recap.php";
+    }
+    if(!$comp && $_SESSION['contError'] < 3){
         include_once "../Vista/iniciar_vista.php";
     }
 ?>

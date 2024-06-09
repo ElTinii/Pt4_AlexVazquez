@@ -20,7 +20,7 @@ function password(){
             session_start();
             $_SESSION['username'] = $username;
             //El que fem es entrar al controlador dels usuaris i li enviem per la url amb quin username ha entrat
-           header("Location: ../Controlador/usuari_controlador.php?username=$username;");
+           header("Location: ../Controlador/usuari_controlador.php?username=$username");
         }else{
             $errors = "La contrasenya no es correcta";
             include_once "../Vista/iniciar_vista.php";
