@@ -19,7 +19,7 @@ $name = $_SESSION['name'];
 if(!compemail($email)){
     afegirUser($email, $name, $google,$github);
 }
-//iniciem la sessio
+//iniciem la sess
 
 //Aqui fem que si podem agafar de la url i la variable $_GET no esta buida que la session agafi el username de la url
 if (isset($_GET['username']) && !($_GET['username'] == "")){
